@@ -13,7 +13,7 @@ class TestTwoSum(unittest.TestCase):
         # Test case 3: Multiple solutions
         nums2 = [3, 3]
         target2 = 6
-        self.assertEqual(proper_two_sum(nums2, target2), [0, 1])
+        self.assertEqual(proper_two_sum(nums2, target2), [0, 2])
 
     def test_fallback_solution(self):
         # Test case 1: Basic example

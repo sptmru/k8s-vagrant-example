@@ -1,0 +1,19 @@
+name: Build Docker images
+
+on: 
+  workflow_run:
+    workflows: ["Run unit tests"]
+    types:
+      - completed
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build Docker Images
+        run: |
+          docker build -t fallback-solution -f app/Dockerfile.fallback app
+          docker build -t proper-solution -f app/Dockerfile.proper app
